@@ -29,10 +29,13 @@
     ease: string;
   }
 
+  const reduced = prefersReducedMotion();
+
   // A few full-width bounces before the final settle, so the sweep reads as
   // random. Waypoints are cosmetic — the outcome was already rolled.
+  // Reduced motion: one direct move to the result instead of the bounces.
   function buildSteps(): Step[] {
-    if (prefersReducedMotion()) return [{ pos: landingFraction, ms: 10, ease: 'linear' }];
+    if (reduced) return [{ pos: landingFraction, ms: 900, ease: 'cubic-bezier(0.15, 0.85, 0.25, 1)' }];
     const swing = 'cubic-bezier(0.45, 0.05, 0.55, 0.95)';
     return [
       { pos: 0.82 + Math.random() * 0.15, ms: 650, ease: 'cubic-bezier(0.3, 0, 0.4, 1)' },
@@ -56,7 +59,10 @@
       stepIdx += 1;
     } else if (!landed) {
       landed = true;
-      onDone();
+      // Reduced motion skips the bounces, so hold on the landed result long
+      // enough to read before the modal advances.
+      if (reduced) setTimeout(onDone, 2000);
+      else onDone();
     }
   }
 </script>
