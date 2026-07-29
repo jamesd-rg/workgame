@@ -13,6 +13,7 @@
   import CertificationPanel from './lib/ui/CertificationPanel.svelte';
   import FellowshipPanel from './lib/ui/FellowshipPanel.svelte';
   import ClinicPanel from './lib/ui/ClinicPanel.svelte';
+  import AboutPanel from './lib/ui/AboutPanel.svelte';
   import DebtBanner from './lib/ui/DebtBanner.svelte';
   import CelebrationModal from './lib/ui/CelebrationModal.svelte';
   import WinScreen from './lib/ui/WinScreen.svelte';
@@ -58,6 +59,8 @@
     <FellowshipPanel />
   {:else if tab === 'clinic'}
     <ClinicPanel />
+  {:else if tab === 'about'}
+    <AboutPanel />
   {/if}
 
   {#if game.activeAction?.kind === 'treatment'}

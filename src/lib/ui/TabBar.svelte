@@ -1,5 +1,5 @@
 <script lang="ts">
-  export type Tab = 'patients' | 'training' | 'certs' | 'fellowships' | 'clinic';
+  export type Tab = 'patients' | 'training' | 'certs' | 'fellowships' | 'clinic' | 'about';
 
   interface Props {
     active: Tab;
@@ -12,7 +12,8 @@
     { id: 'training', label: 'Training' },
     { id: 'certs', label: 'Certifications' },
     { id: 'fellowships', label: 'Fellowships' },
-    { id: 'clinic', label: 'Clinic' }
+    { id: 'clinic', label: 'Clinic' },
+    { id: 'about', label: 'About' }
   ];
 </script>
 
