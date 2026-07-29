@@ -24,7 +24,6 @@ export interface ConditionDef {
 export interface SeverityDef {
   severity: Severity;
   label: string;
-  priceMult: number;
   extraHours: number;
   weight: number;
 }

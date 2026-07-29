@@ -1,10 +1,10 @@
 import type { Tier, TrainingDef, TrainingKind } from '../core/types';
 
 export const TRAINING: TrainingDef[] = [
-  { kind: 'research', name: 'Research', hours: 1, baseCost: 0, xp: 25 },
-  { kind: 'video', name: 'Video Lesson', hours: 1, baseCost: 30, xp: 60 },
-  { kind: 'halfDay', name: 'Half-Day Course', hours: 4, baseCost: 150, xp: 340 },
-  { kind: 'fullDay', name: 'Full-Day Course', hours: 8, baseCost: 400, xp: 800 }
+  { kind: 'research', name: 'Research', hours: 1, baseCost: 0, xp: 20 },
+  { kind: 'video', name: 'Video Lesson', hours: 1, baseCost: 50, xp: 55 },
+  { kind: 'halfDay', name: 'Half-Day Course', hours: 4, baseCost: 240, xp: 300 },
+  { kind: 'fullDay', name: 'Full-Day Course', hours: 8, baseCost: 640, xp: 720 }
 ];
 
 export const TRAINING_BY_KIND: Record<TrainingKind, TrainingDef> = Object.fromEntries(

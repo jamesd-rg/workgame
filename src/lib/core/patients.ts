@@ -32,6 +32,9 @@ function makePatient(
   const severity = rollSeverity(rng);
   const condition = CONDITIONS_BY_TREATMENT[treatment.id];
   state.patientCounter += 1;
+  // Price scales with chair time: severity adds hours, and the patient pays
+  // for the full appointment at the treatment's base hourly rate.
+  const hours = treatment.baseHours + severity.extraHours;
   return {
     id: `p${state.day}-${state.patientCounter}`,
     name: `${PATIENT_FIRST_NAMES[randInt(rng, 0, PATIENT_FIRST_NAMES.length - 1)]} ${
@@ -39,8 +42,8 @@ function makePatient(
     }`,
     conditionId: condition.id,
     severity: severity.severity,
-    price: Math.round(treatment.basePrice * severity.priceMult),
-    hours: treatment.baseHours + severity.extraHours,
+    price: Math.round(treatment.basePrice * (hours / treatment.baseHours)),
+    hours,
     locked,
     lockReason,
     age: randInt(rng, 18, 90),

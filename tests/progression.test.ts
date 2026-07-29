@@ -144,15 +144,15 @@ describe('training and clinic', () => {
     const state = newGame(rng);
     state.money = 1000;
     train(state, 'filling', 'video');
-    expect(state.money).toBe(970);
-    expect(state.skills['filling'].xp).toBe(60);
+    expect(state.money).toBe(950);
+    expect(state.skills['filling'].xp).toBe(55);
   });
 
   it('free research needs no money', () => {
     const state = newGame(mulberry32(52));
     state.money = -500; // even in debt
     train(state, 'filling', 'research');
-    expect(state.skills['filling'].xp).toBe(25);
+    expect(state.skills['filling'].xp).toBe(20);
     expect(state.money).toBe(-500);
   });
 

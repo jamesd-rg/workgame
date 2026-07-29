@@ -27,9 +27,9 @@ export const CONDITIONS_BY_TREATMENT: Record<string, ConditionDef> = Object.from
 );
 
 export const SEVERITIES: SeverityDef[] = [
-  { severity: 'mild', label: 'Mild', priceMult: 1.0, extraHours: 0, weight: 45 },
-  { severity: 'moderate', label: 'Moderate', priceMult: 1.4, extraHours: 1, weight: 35 },
-  { severity: 'severe', label: 'Severe', priceMult: 1.9, extraHours: 2, weight: 20 }
+  { severity: 'mild', label: 'Mild', extraHours: 0, weight: 45 },
+  { severity: 'moderate', label: 'Moderate', extraHours: 1, weight: 35 },
+  { severity: 'severe', label: 'Severe', extraHours: 2, weight: 20 }
 ];
 
 export const SEVERITIES_BY_KEY: Record<string, SeverityDef> = Object.fromEntries(
